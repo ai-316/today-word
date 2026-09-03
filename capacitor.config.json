@@ -1,0 +1,6 @@
+{
+  "appId": "kr.todayword.app",
+  "appName": "오늘의 한 말씀",
+  "webDir": "dist",
+  "backgroundColor": "#FFF6DC"
+}

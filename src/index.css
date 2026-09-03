@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@theme {
+  --font-body: "Noto Sans KR", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Gowun Batang", "Noto Sans KR", serif;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #fff6dc;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+  font-family: var(--font-body);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* ── 버튼 ────────────────────────────────────── */
+
+.btn-primary,
+.btn-soft {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  padding: 0.95rem 1.25rem;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.15s ease, filter 0.2s ease, background 0.2s ease;
+}
+
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, #ffab2e 0%, #ff7a1a 100%);
+  box-shadow: 0 10px 24px -8px rgba(255, 122, 26, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+.btn-primary:active {
+  transform: scale(0.965);
+}
+
+.btn-soft {
+  color: #57534e;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 18px -8px rgba(180, 140, 60, 0.3);
+}
+.btn-soft:hover {
+  background: #fff;
+}
+.btn-soft:active {
+  transform: scale(0.97);
+}
+
+
+/* ── 애니메이션 ──────────────────────────────── */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-rise {
+  animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes quote-fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+.quote-fade {
+  animation: quote-fade 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes cloud-drift {
+  0%,
+  100% {
+    transform: translateX(0) scale(var(--cs, 1));
+  }
+  50% {
+    transform: translateX(34px) scale(var(--cs, 1));
+  }
+}
+.cloud {
+  animation: cloud-drift 70s ease-in-out infinite;
+}
+
+@keyframes mote-float {
+  0% {
+    transform: translateY(105vh) translateX(0);
+  }
+  100% {
+    transform: translateY(-10vh) translateX(var(--sway, 20px));
+  }
+}
+.mote {
+  top: 0;
+  animation: mote-float linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cloud,
+  .mote {
+    animation: none !important;
+  }
+}
